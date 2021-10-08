@@ -68,12 +68,16 @@ function dispalyMovies(array) {
 
 async function searchAllMovie(word) {
 
-    if (word != " ") {
+    if (word != " " || word != "") {
         let nowPlayingMovies = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=829075d6b59e95b66c99c05e3231dbd8&language=en-US&query=${word}&page=1&include_adult=false`);
         if (nowPlayingMovies.ok == true) {
             nowPlayingMovies = await nowPlayingMovies.json();
             console.log(nowPlayingMovies)
             dispalyMovies(nowPlayingMovies.results);
+        }
+        else {
+            nowPlayingMovies = await nowPlayingMovies.json();
+            console.log(nowPlayingMovies.errors[0]);
         }
     }
 

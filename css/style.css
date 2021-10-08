@@ -109,9 +109,11 @@ text-align: center;
 }
 .poster-container{
     overflow: hidden;
+    cursor:pointer;
 }
 .poster-container:hover .movie-details{
     transform:  translateY(0%);
+    
 }
 .alert{
     display: none;
