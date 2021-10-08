@@ -1,6 +1,10 @@
 /// <reference path="../typings/globals/jquery/index.d.ts" />
 
 let curruntDispalyMovies = [];
+let password;
+
+
+
 getMovie();
 
 async function getMovie(q = "now_playing") {
@@ -40,13 +44,13 @@ function dispalyMovies(array) {
 
     array.forEach((element) => {
 
-        divs += (`<div class="col-12 col-md-6 col-lg-4 py-5 ">
+        divs += (`<div class="col-12 col-md-6 col-lg-4 mb-5 ">
        <div class="poster-container position-relative">
        <div class=" movie-details position-absolute top-0 start-0 end-0 bottom-0  rounded-3 " id="movie-details">
        <h4>${element.title}</h4>
-       <p class=" fw-bold"> ${element.overview}</p>
-       <p class=" fw-bold"><span>Rate : </span>${element.vote_average}</p>
-       <p class=" fw-bold">${element.release_date}</p>
+       <p class=" "> ${element.overview}</p>
+       <p class=" "><strong>Rate : </strong>${element.vote_average}</p>
+       <p class=" ">${element.release_date}</p>
        
        </div>
            <img src="https://image.tmdb.org/t/p/original${element.poster_path}" alt="${element.title}" class=" w-100 d-block m-auto rounded-3">
@@ -144,7 +148,6 @@ function clrearSearch() {
 }
 
 
-let password;
 function regexForm(element) {
     let regex;
 
@@ -181,7 +184,7 @@ function regexForm(element) {
 
 
 
-$('input').keyup(function () {
+$('.formInput').keyup(function () {
     let id = $(this).attr('id');
     console.log(id);
     if (id == "userRePassword") {
